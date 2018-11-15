@@ -1,16 +1,16 @@
-var sum = function (a: number){
-  var summ = a;
-  
-  function f(b: number){
-    if(b){
-      summ += b;
-      return f;
-    }
-    else return summ;
+var sum = function(a){
+  console.log(a);
+  if(this.summ === undefined) this.summ = 0;
+  if (a === null || a === undefined){
+    return this.summ;
   }
-  
-  return f;
-}
+
+  else {
+    this.summ += a;
+    return sum;
+  }
+
+};
 
 console.log(sum(1)(2)(3)());
       
